@@ -20,34 +20,37 @@ public class IntegerStack {
 			arrayII[i] = arrayI[i];
 		}
 		//D. set the member array equal to the new array.
-		
+		arrayI = arrayII;
 	}
 	
 	//4. Complete the steps in the pop method.
 	public int pop() {
 		//A. create an integer variable and initialize it to the
 		//   last element of the member array.
-		
+		int v = arrayI[arrayI.length - 1];
 		//B. create a new array that is one element smaller than the member array
-		
+		int[] arrayII = new int[arrayI.length - 1];
 		//C. iterate through the new array and copy every element from the
 		//   member array to the new array
-		
+		for (int i = 0; i < arrayII.length; i++) {
+			arrayII[i] = arrayI[i];
+		}
 		//D. set the member array equal to the new array
-		
+		arrayI = arrayII;
 		//E. return the variable you created in step A
-		return 0;
+		return v;
 	}
 	
 	//5. Complete the clear method to set the
 	//   member array to a new array of length 0
 	public void clear() {
-		
+		int[] arrayII = new int[0];
+		arrayI = arrayII;
 	}
 	
 	//6. Complete the size method to return 
 	//   the length of the member array
 	public int size() {
-		return 0;
+		return arrayI.length;
 	}
 }
