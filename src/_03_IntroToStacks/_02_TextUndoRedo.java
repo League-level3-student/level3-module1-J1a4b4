@@ -48,7 +48,7 @@ public class _02_TextUndoRedo implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		
-	}
+	} 
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -56,9 +56,14 @@ public class _02_TextUndoRedo implements KeyListener {
 			stackI.push(text.charAt(text.length() - 1));
 			text = text.substring(0, text.length() - 1);
 			label.setText(text);
+		}else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			if (stackI.isEmpty() == false) {
+				text = text + stackI.pop();
+				label.setText(text);
+			}
 		}else {
-			text = label.getText();
 			label.setText(text + e.getKeyChar());
+			text = label.getText();
 		}
 	}
 	
