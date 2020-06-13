@@ -73,7 +73,7 @@ public class _02_LogSearch implements ActionListener {
 		buttonII.setText("Search by ID");
 		buttonIII.setText("View List");
 		buttonIV.setText("Remove Entry");
-		buttonV.setText("Audit");
+		buttonV.setText("View Audit Log");
 		buttonI.addActionListener(this);
 		buttonII.addActionListener(this);
 		buttonIII.addActionListener(this);
@@ -110,7 +110,8 @@ public class _02_LogSearch implements ActionListener {
 			int currentID = 0;
 			for (int i = 0; i < log.size(); i++) {
 				currentID = keyRing.pop();
-				list = list + "ID: " + currentID + " Name: " + log.get(currentID) + "  ";
+				list = list + "ID: " + currentID + " Name: " + log.get(currentID)
+						+ "";
 				transition.push(currentID);
 			}
 			for (int i = 0; i < transition.size(); i++) {
@@ -124,17 +125,20 @@ public class _02_LogSearch implements ActionListener {
 			if (log.containsKey(Integer.parseInt(input))) {
 				auditLog.put(auditIndex, "Type: Addition ID: " + Integer.parseInt(input) + " Entry : " + log.get(input) + " Success: Y");
 				log.remove(input);
-				JOptionPane.showMessageDialog(null, "Entry Removed");
+				JOptionPane.showMessageDialog(null, "Entry Removed.");
 			}else {
 				JOptionPane.showMessageDialog(null, "The entry you are attempting to remove does not exist.");
 				auditLog.put(auditIndex, "Type: Addition ID: " + Integer.parseInt(input) + " Entry : " + log.get(input) + " Success: N");
 			}
 			auditIndex ++;
 		}else if (e.getSource().equals(buttonV)) {
+			String listI = "Audit Log:"
+					+ "";
 			for (int i = 0; i < auditLog.size(); i++) {
-				String listI = "";
-				listI = listI + "ID: " + i + " Name: " + auditLog.get(i) + "  ";
+				listI = listI + auditLog.get(i)
+						+ "";
 			}
+			JOptionPane.showMessageDialog(null, listI);
 		}
 	}
 }
